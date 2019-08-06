@@ -11,6 +11,7 @@
     <link href="static/jquery-theme/jquery-ui-redmond.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="client/lib/head.load.min.js"></script>
     <script type="text/javascript">
+      var cur_guid = guid();
       head.js(
           // libraries
           'client/lib/jquery.min.js',
@@ -50,7 +51,24 @@
           dispatcher.post('init');
           // JESSY
           $('#auth_button').hide();
+          $('#prev').hide();
+          $('#next').hide();
+          $('#document_name').hide();
+          $('#pulldown').remove();
+          $("#uniqueid").html("Task complete! Your unique ID is: "+cur_guid);
+          console.log(cur_guid);
       });
+
+      function guid() {
+        function s4() {
+          return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+        }
+        // return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        //  s4() + '-' + s4() + s4() + s4();
+        return s4() + '-' + s4() + '-' + s4();
+      }
 
     </script>
     <link rel="stylesheet" type="text/css" href="static/style-vis.css"/>
@@ -155,6 +173,10 @@
         <input type="file" id="import_coll" class="borderless" accept="application/zip,application/x-gzip" />
       </fieldset>
     </form>
+    <!-- JESSY: Unique ID dialog -->
+    <div id="uid_window" class="dialog">
+      <div id="uniqueid">Task completed! Your unique ID is: cur_guid</div>
+    </div>
     <!-- Data dialog -->
     <form id="data_form" class="dialog" title="Data">
       <!-- Data dialog export section -->
