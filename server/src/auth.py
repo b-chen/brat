@@ -69,8 +69,10 @@ class InvalidAuthError(ProtocolError):
 
 def _is_authenticated(user, password):
     # TODO: Replace with a database back-end
-    return (user in USER_PASSWORD and
-            password == USER_PASSWORD[user])
+    # JESSY always return true
+    return True
+    # return (user in USER_PASSWORD and
+    #        password == USER_PASSWORD[user])
     # password == _password_hash(USER_PASSWORD[user]))
 
 

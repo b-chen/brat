@@ -1964,8 +1964,10 @@ var VisualizerUI = (function($, window, undefined) {
       initForm(authForm, { resizable: false });
       var authFormSubmit = function(evt) {
         dispatcher.post('hideForm');
-        var _user = $('#auth_user').val();
-        var password = $('#auth_pass').val();
+        // var _user = $('#auth_user').val();
+        // var password = $('#auth_pass').val();
+        var _user = 'jessy';
+        var password = 'jessy';
         dispatcher.post('ajax', [{
             action: 'login',
             user: _user,
@@ -2001,6 +2003,8 @@ var VisualizerUI = (function($, window, undefined) {
         }
       });
       authForm.submit(authFormSubmit);
+      // JESSY auto login
+      authFormSubmit();
 
 
       var tutorialForm = $('#tutorial');
