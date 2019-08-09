@@ -1966,8 +1966,8 @@ var VisualizerUI = (function($, window, undefined) {
         dispatcher.post('hideForm');
         // var _user = $('#auth_user').val();
         // var password = $('#auth_pass').val();
-        var _user = 'jessy';
-        var password = 'jessy';
+        var _user = cur_guid; //BECCA
+        var password = 'utAustinBrat2019'; //BECCA
         dispatcher.post('ajax', [{
             action: 'login',
             user: _user,

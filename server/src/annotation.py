@@ -18,6 +18,9 @@ from filelock import FileLock
 from common import ProtocolError
 from message import Messager
 
+#BECCA importing get_session to get username
+from session import get_session 
+
 '''
 Functionality related to the annotation file format.
 
@@ -300,7 +303,7 @@ class Annotations(object):
         if not input_files:
             # Our first attempts at finding the input by checking suffixes
             # failed, so we try to attach know suffixes to the path.
-            sugg_path = document + '.' + JOINED_ANN_FILE_SUFF
+            sugg_path = document + '.' + self.user + '.' + JOINED_ANN_FILE_SUFF #BECCA
             if isfile(sugg_path):
                 # We found a joined file by adding the joined suffix
                 input_files = [sugg_path]
@@ -340,6 +343,12 @@ class Annotations(object):
         from os.path import getctime, getmtime
         #from fileinput import FileInput, hook_encoded
 
+        #BECCA
+        try:
+            self.user = get_session()['user']
+        except KeyError:
+            self.user = 'anonymous'
+
         # we should remember this
         self._document = document
 
@@ -364,7 +373,8 @@ class Annotations(object):
         input_files = self._select_input_files(document)
 
         if not input_files:
-            with open('{}.{}'.format(document, JOINED_ANN_FILE_SUFF), 'w'):
+            #BECCA
+            with open('{}.{}.{}'.format(document, self.user, JOINED_ANN_FILE_SUFF), 'w'):
                 pass
 
             input_files = self._select_input_files(document)

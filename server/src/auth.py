@@ -85,7 +85,7 @@ def login(user, password):
         raise InvalidAuthError
 
     get_session()['user'] = user
-    Messager.info('Hello!')
+    Messager.info('Hello, your ID is: '+user) #BECCA
     return {}
 
 
