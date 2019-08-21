@@ -4,6 +4,7 @@
 ```
 cp config_template.py config.py
 ./install.sh
+pip install filelock
 ```
 
 ## Changes ##
