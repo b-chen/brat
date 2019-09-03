@@ -55,34 +55,67 @@
           $('#next').hide();
           $('#document_name').hide();
           $('#pulldown').remove();
+          $('#span_search_links').hide();
           $("#uniqueid").html("Task complete! Your unique ID is: "+cur_guid);
           console.log(cur_guid);
 
       });
 
       function guid() {
-        function s4() {
-          return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
+          function s4() {
+              return Math.floor((1 + Math.random()) * 0x10000)
+                  .toString(16)
+                  .substring(1);
         }
         // return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-        //  s4() + '-' + s4() + s4() + s4();
+        // s4() + '-' + s4() + s4() + s4();
         return s4() + '-' + s4() + '-' + s4();
       }
 
       function submitTrigger() {
-        var uidWindow = $("#uid_window");
-        dispatcher.post('initForm', [uidWindow, {
-          width: 600, 
-          height: 100, 
-          no_cancel: true,    
-          no_ok: true,        
-          close: function(evt) {
-            keymap = null;
-          }
-        }]);
-        dispatcher.post('showForm', [uidWindow]);
+          var uidWindow = $("#uid_window");
+          dispatcher.post('initForm', [uidWindow, {
+              width: 600,
+              height: 100,
+              no_cancel: true,
+              no_ok: true,
+              close: function(evt) {
+                  keymap = null;
+              }
+          }]);
+          dispatcher.post('showForm', [uidWindow]);
+      }
+
+      <!--      source: https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript?fbclid=IwAR3fOmbm44ssi1olYtU9bScNymAoOpQQiBfhRPmggb9oPRJk3Eexzsqlj6M-->
+      function fallbackCopyGuid() {
+        var textArea = document.createElement("textarea");
+        document.body.appendChild(textArea);
+        textArea.value = cur_guid;
+        textArea.focus();
+        console.log(textArea.value);
+        textArea.select();
+
+        try {
+          var successful = document.execCommand('copy');
+          var msg = successful ? 'successful' : 'unsuccessful';
+          console.log('Fallback: Copying text command was ' + msg);
+        } catch (err) {
+          console.error('Fallback: Oops, unable to copy', err);
+        }
+
+        document.body.removeChild(textArea);
+      }
+
+      function copyGuid() {
+        if (!navigator.clipboard) {
+          fallbackCopyGuid();
+          return;
+        }
+        navigator.clipboard.writeText(cur_guid).then(function() {
+          console.log('Async: Copying to clipboard was successful!');
+        }, function(err) {
+          console.error('Async: Could not copy text: ', err);
+        });
       }
 
     </script>
@@ -196,7 +229,8 @@
     </form>
     <!-- JESSY: Unique ID dialog -->
     <div id="uid_window" class="dialog">
-      <div id="uniqueid">Task completed! Your unique ID is: cur_guid</div>
+      <div id="uniqueid" style="display:inline">Task completed! Your unique ID is: cur_guid </div>
+      <input id="guid_button" type="button" value="Copy" onclick="copyGuid()" />
     </div>
     <!-- Data dialog -->
     <form id="data_form" class="dialog" title="Data">
