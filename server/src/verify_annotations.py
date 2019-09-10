@@ -145,13 +145,14 @@ def verify_entity_overlap(ann_obj, projectconf):
     overlapping = check_textbound_overlap(physical_entities)
     for a1, a2 in overlapping:
         if a1.same_span(a2):
-            if not projectconf.spans_can_be_equal(a1.type, a2.type):
-                issues.append(
-                    AnnotationIssue(
-                        a1.id, AnnotationError, "Error: %s cannot have identical span with %s %s" %
-                        (disp(
-                            a1.type), disp(
-                            a2.type), a2.id)))
+            # if not projectconf.spans_can_be_equal(a1.type, a2.type):
+            #     issues.append(
+            #         AnnotationIssue(
+            #             a1.id, AnnotationError, "Error: %s cannot have identical span with %s %s" %
+            #             (disp(
+            #                 a1.type), disp(
+            #                 a2.type), a2.id)))
+            pass
         elif a2.contains(a1):
             if not projectconf.span_can_contain(a1.type, a2.type):
                 issues.append(
