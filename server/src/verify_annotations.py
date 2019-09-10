@@ -136,47 +136,46 @@ def verify_entity_overlap(ann_obj, projectconf):
     issues = []
 
     # shortcut
-    def disp(s):
-        return projectconf.preferred_display_form(s)
-
-    # check for overlap between physical entities
-    physical_entities = [a for a in ann_obj.get_textbounds(
-    ) if projectconf.is_physical_entity_type(a.type)]
-    overlapping = check_textbound_overlap(physical_entities)
-    for a1, a2 in overlapping:
-        if a1.same_span(a2):
-            # if not projectconf.spans_can_be_equal(a1.type, a2.type):
-            #     issues.append(
-            #         AnnotationIssue(
-            #             a1.id, AnnotationError, "Error: %s cannot have identical span with %s %s" %
-            #             (disp(
-            #                 a1.type), disp(
-            #                 a2.type), a2.id)))
-            pass
-        elif a2.contains(a1):
-            if not projectconf.span_can_contain(a1.type, a2.type):
-                issues.append(
-                    AnnotationIssue(
-                        a1.id, AnnotationError, "Error: %s cannot be contained in %s (%s)" %
-                        (disp(
-                            a1.type), disp(
-                            a2.type), a2.id)))
-        elif a1.contains(a2):
-            if not projectconf.span_can_contain(a2.type, a1.type):
-                issues.append(
-                    AnnotationIssue(
-                        a1.id, AnnotationError, "Error: %s cannot contain %s (%s)" %
-                        (disp(
-                            a1.type), disp(
-                            a2.type), a2.id)))
-        else:
-            if not projectconf.spans_can_cross(a1.type, a2.type):
-                issues.append(
-                    AnnotationIssue(
-                        a1.id,
-                        AnnotationError,
-                        "Error: annotation cannot have crossing span with %s" %
-                        a2.id))
+    # def disp(s):
+    #     return projectconf.preferred_display_form(s)
+    #
+    # # check for overlap between physical entities
+    # physical_entities = [a for a in ann_obj.get_textbounds(
+    # ) if projectconf.is_physical_entity_type(a.type)]
+    # overlapping = check_textbound_overlap(physical_entities)
+    # for a1, a2 in overlapping:
+    #     if a1.same_span(a2):
+    #         if not projectconf.spans_can_be_equal(a1.type, a2.type):
+    #             issues.append(
+    #                 AnnotationIssue(
+    #                     a1.id, AnnotationError, "Error: %s cannot have identical span with %s %s" %
+    #                     (disp(
+    #                         a1.type), disp(
+    #                         a2.type), a2.id)))
+    #     elif a2.contains(a1):
+    #         if not projectconf.span_can_contain(a1.type, a2.type):
+    #             issues.append(
+    #                 AnnotationIssue(
+    #                     a1.id, AnnotationError, "Error: %s cannot be contained in %s (%s)" %
+    #                     (disp(
+    #                         a1.type), disp(
+    #                         a2.type), a2.id)))
+    #     elif a1.contains(a2):
+    #         if not projectconf.span_can_contain(a2.type, a1.type):
+    #             issues.append(
+    #                 AnnotationIssue(
+    #                     a1.id, AnnotationError, "Error: %s cannot contain %s (%s)" %
+    #                     (disp(
+    #                         a1.type), disp(
+    #                         a2.type), a2.id)))
+    #     else:
+    #         if not projectconf.spans_can_cross(a1.type, a2.type):
+    #             issues.append(
+    #                 AnnotationIssue(
+    #                     a1.id,
+    #                     AnnotationError,
+    #                     "Error: annotation cannot have crossing span with %s" %
+    #                     a2.id))
 
     # TODO: generalize to other cases
     return issues
