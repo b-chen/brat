@@ -2574,7 +2574,7 @@ var AnnotatorUI = (function($, window, undefined) {
             var $ok = $('#span_form-ok').wrap('<span id="span_form_lock_bset"/>');
             var $span = $ok.parent();
             var $lock = $('<input id="span_form_lock" type="checkbox"/>').insertBefore($ok);
-            $('<label for="span_form_lock"/>').text("Lock type").insertBefore($ok);
+//            $('<label for="span_form_lock"/>').text("Lock type").insertBefore($ok);
             $lock.button({
               id: 'span_form_lock',
               text: false,

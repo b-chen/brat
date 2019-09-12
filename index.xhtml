@@ -55,6 +55,9 @@
           $('#next').hide();
           $('#document_name').hide();
           $('#pulldown').remove();
+          $('#span_form_lock').remove();
+          $('#span_form_reselect').remove();
+          $('#span_form_add_fragment').remove();
           $("#uniqueid").html("Task complete! Your unique ID is: "+cur_guid);
           console.log(cur_guid);
 
@@ -688,7 +691,7 @@
       <!-- Span dialog annotated text -->
       <fieldset id="span_selected_fset">
         <legend>Text</legend>
-        <a target="brat_linked" id="span_highlight_link" href="#">Link</a>
+<!--        <a target="brat_linked" id="span_highlight_link" href="#">Link</a>-->
         <div id="span_selected"/>
       </fieldset>
       <!-- Span dialog search links -->
@@ -744,14 +747,14 @@
         </div>
       </fieldset>
       <!-- Span dialog notes -->
-      <fieldset>
-        <legend>Notes</legend>
-        <div id="span_notes_container">
-          <input id="span_notes" class="borderless"/>
-          <input id="clear_span_notes_button" type="button"
-                 value="&#x2715;" title="Clear notes"/>
-        </div>
-      </fieldset>
+<!--      <fieldset>-->
+<!--        <legend>Notes</legend>-->
+<!--        <div id="span_notes_container">-->
+<!--          <input id="span_notes" class="borderless"/>-->
+<!--          <input id="clear_span_notes_button" type="button"-->
+<!--                 value="&#x2715;" title="Clear notes"/>-->
+<!--        </div>-->
+<!--      </fieldset>-->
     </form>
     <!-- Rapid mode span dialog -->
     <form id="rapid_span_form" class="dialog" title="Span type">
