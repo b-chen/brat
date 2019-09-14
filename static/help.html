@@ -1,0 +1,111 @@
+<HTMLQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2011-11-11/HTMLQuestion.xsd">
+<HTMLContent><![CDATA[
+<!DOCTYPE html>
+<html>
+<head>
+	<title><center>Advice Annotation</center></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="https://s3.amazonaws.com/mturk-public/externalHIT_v1.js"></script>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<style>
+		.section {
+			background-color: #e6e6ff;
+			color: black;
+			margin: 12px;
+			padding: 40px;
+			width: 1000px
+		}
+		.link_section {
+			background-color: #ffffcc;
+			color: black;
+			margin: 12px;
+			padding: 40px;
+			width: 1000px
+		}
+		.context_section {
+			background-color: #e5ecff;
+			color: black;
+			margin: 12px;
+			padding: 40px;
+			width: 1000px
+		}
+		.par {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 20px;
+		}
+		.subtext {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 18px;
+
+		}
+		.final_instructions {
+			font-family: Arial, Helvetica, sans-serif;
+			color: #0E1DAC;
+		}
+	</style>
+</head>
+<body>
+	<form name="mturk_form" method="post" id="mturk_form"
+	action="https://www.mturk.com/mturk/externalSubmit"><input type="hidden" value="" name="assignmentId" id="assignmentId"/>
+	<div class="section">
+		<h3 style="font-family:Arial, Helvetica, sans-serif;font-size:150%"><center>Instructions</center></h3>
+		<p class="par">
+            Parenting is both challenging and rewarding. Parents often have many questions regarding
+            their little ones and online forums are good places for them to look for advice. However, navigating
+            through many posts is a daunting task, and our goal is to help them find advice that they need. And
+            we need your help!
+        </p>
+        <p class="par">
+            In this hit, we ask you to:
+        </p>
+		<ol class="subtext" style="list-style-type:decimal;">
+			<li>read a post asking for parenting advice,</li>
+            <li>go to the link provided below and head to our highlighting interface to read the replies to this post,</li>
+            <li>as you read through the replies, <strong>highlight all text spans that give advice</strong>.</li>
+		</ol>
+		<p class="par">
+            Specifically, an advice is text that the answerer intends the original poster to perceive as
+            <strong> a directive to do something that explicitly addresses the poster’s question (to their benefit). </strong>
+            Mark the longest contiguous text for each piece of advice. It may be helpful to read the entire text once and only
+            after that mark the text snippets describing advice.
+        </p>
+        <p class="par">
+            Advice can come in a variety of forms, for example:
+        </p>
+		<ul class="subtext" style="list-style-type:disc;">
+			<li>Direct advice:</li>
+            <ul class="subtext" style="list-style-type:circle">
+                <li>Using words such as "suggest", "advise", “recommend”</li>
+                <li>Using verbs such as “can”, “could”, “should”, “may”, “might”, “need”, e.g., "<i>you should...</i>", "<i>you need to...</i>"</li>
+                <li>Using imperatives, such as "<i>Put baking soda and vinegar down the drain</i>", or "<i>Don’t get worked up because of the tantrum</i>"</li>
+                <li>Using questions, such as "<i>why don’t you…</i>", "<i>how about…</i>", "<i>have you thought about…</i>"</li>
+                <li>Expressing conditions, for example, "<i>If I were you, I would…</i>"</li>
+            </ul>
+            <li>Indirect advice:</li>
+            <ul class="subtext" style="list-style-type:circle">
+                <li>Sentences like "<i>One thing you could do is…</i>", "<i>It won’t hurt to…</i>"</li>
+                <li>Hints from personal experiences with the intention for the original poster to do the same thing, for example,</li>
+                <ul class="subtext" style="list-style-type:square">
+                    <li><i>Q: I am having heart palpitations. What should I do?</i></li>
+                    <li><i>A: “I also had palpitations. I stumbled upon fish oil that my dad was taking for his heart, and it cleared them out.”</i></li>
+                </ul>
+            </ul>
+		</ul>
+        <p class="par">
+            Please highlight only explicit advice. A good rule of thumb is to see whether the text instructs the
+            original poster to do something that would directly solve the question. Here are some examples that
+            should NOT be considered an advice:
+        </p>
+        <ul class="subtext" style="list-style-type:disc">
+            <li>Expressing sentiment, e.g., “<i>Parenthood: you will never love and hate something so much.</i>”</li>
+            <li>Expressing support, e.g., "<i>You are enough.</i>", "<i>It’s totally understandable.</i>"</li>
+            <li>Generic argumentation, e.g., "<i>Everyone is responsible for their own deeds.</i>"</li>
+            <li>Information-seeking questions, e.g., "<i>How old is your daughter?</i>"</li>
+        </ul>
+        <p class="par">A complete annotated article should look like below:</p>
+        <img src="http://ec2-3-15-209-54.us-east-2.compute.amazonaws.com:8001/static/img/completed_annotation.png" style="width:75%;height:75%;">
+	</div>
+</body>
+</html>
+</HTMLContent>
+<!--<FrameHeight>600</FrameHeight>-->
+</HTMLQuestion>
