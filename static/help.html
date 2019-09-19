@@ -48,7 +48,7 @@
 	<form name="mturk_form" method="post" id="mturk_form"
 	action="https://www.mturk.com/mturk/externalSubmit"><input type="hidden" value="" name="assignmentId" id="assignmentId"/>
 	<div class="section">
-		<h3 style="font-family:Arial, Helvetica, sans-serif;font-size:150%"><center>Instructions</center></h3>
+		<h3 style="font-family:Arial, Helvetica, sans-serif;font-size:24px"><center>Instructions</center></h3>
 		<p class="par">
             Parenting is both challenging and rewarding. Parents often have many questions regarding
             their little ones and online forums are good places for them to look for advice. However, navigating
@@ -61,12 +61,15 @@
 		<ol class="subtext" style="list-style-type:decimal;">
 			<li>read a post asking for parenting advice,</li>
             <li>go to the link provided below and head to our highlighting interface to read the replies to this post,</li>
-            <li>as you read through the replies, <strong>highlight all text spans that give advice</strong>.</li>
+            <li>
+                as you read through the replies, <strong>highlight text spans that give advice</strong>.
+                This could be part of a sentence or multiple sentences.
+            </li>
 		</ol>
 		<p class="par">
             Specifically, an advice is text that the answerer intends the original poster to perceive as
-            <strong> a directive to do something that explicitly addresses the poster’s question (to their benefit). </strong>
-            Mark the longest contiguous text for each piece of advice. It may be helpful to read the entire text once and only
+            <strong> a directive to do something that addresses the poster’s question (to their benefit). </strong>
+            Mark <u>the longest contiguous text</u> for each piece of advice. It may be helpful to read the entire text once and only
             after that mark the text snippets describing advice.
         </p>
         <p class="par">
@@ -89,12 +92,16 @@
                     <li><i>Q: I am having heart palpitations. What should I do?</i></li>
                     <li><i>A: “I also had palpitations. I stumbled upon fish oil that my dad was taking for his heart, and it cleared them out.”</i></li>
                 </ul>
+                <li>Statements that imply an action should (or should not) be taken; below, the answer is clearly directing the original poster not to talk about an issue:</li>
+                <ul class="subtext" style="list-style-type:square">
+                    <li><i>Q: Do you parents have any advice on how I should handle this going forward?</i></li>
+                    <li><i>A: “Talking about it likely was making them more stressed out”</i></li>
+                </ul>
             </ul>
 		</ul>
         <p class="par">
-            Please highlight only explicit advice. A good rule of thumb is to see whether the text instructs the
-            original poster to do something that would directly solve the question. Here are some examples that
-            should NOT be considered an advice:
+            A good rule of thumb is to see whether the text instructs the original poster to do something that would
+            solve the question. Here are some examples that should <u>NOT</u> be considered an advice:
         </p>
         <ul class="subtext" style="list-style-type:disc">
             <li>Expressing sentiment, e.g., “<i>Parenthood: you will never love and hate something so much.</i>”</li>
@@ -102,8 +109,6 @@
             <li>Generic argumentation, e.g., "<i>Everyone is responsible for their own deeds.</i>"</li>
             <li>Information-seeking questions, e.g., "<i>How old is your daughter?</i>"</li>
         </ul>
-        <p class="par">A complete annotated article should look like below:</p>
-        <img src="/static/img/annotation.png" style="width: auto;height: auto">
         <p class="par">The highlighting interface looks like below:</p>
         <img src="/static/img/fig1.png">
         <p class="par">Each reply is marked by a <strong>reply ID</strong>; sub-replies are also marked with the symbols “<strong>>>>></strong>”.</p>
@@ -119,6 +124,8 @@
             the bottom right. If you would like to edit an existing highlight, please first delete the original
             highlight.
         </p>
+        <p class="par">A complete annotated thread looks like below:</p>
+        <img src="/static/img/annotation.png" style="width: auto;height: auto">
 	</div>
 </body>
 </html>
