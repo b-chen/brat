@@ -2041,7 +2041,8 @@ var VisualizerUI = (function($, window, undefined) {
             var auth_button = $('#auth_button');
             if (response.user) {
               user = response.user;
-              dispatcher.post('messages', [[['Welcome back, user "' + user + '"', 'comment']]]);
+              // Do not display welcome back message BEN
+//              dispatcher.post('messages', [[['Welcome back, user "' + user + '"', 'comment']]]);
               auth_button.val('Logout ' + user);
               dispatcher.post('user', [user]);
               $('.login').show();
