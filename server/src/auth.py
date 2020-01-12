@@ -33,7 +33,7 @@ class NotAuthorisedError(ProtocolError):
         self.attempted_action = attempted_action
 
     def __str__(self):
-        return 'Login required to perform "%s"' % self.attempted_action
+        return 'Please refresh the page, login required to perform "%s"' % self.attempted_action
 
     def json(self, json_dic):
         json_dic['exception'] = 'notAuthorised'
